@@ -1,5 +1,4 @@
 #import <Flutter/Flutter.h>
-#include "ios_image_load.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -8,6 +7,20 @@
 
 #import <CoreImage/CoreImage.h>
 #import <ImageIO/ImageIO.h>
+
+#include <vector>
+
+std::vector<uint8_t> LoadImageFromFile(const char* file_name,
+						 int* out_width,
+						 int* out_height,
+						 int* out_channels);
+
+NSData *CompressImage(NSMutableData*,
+						 int width,
+						 int height,
+             int bytesPerPixel);
+
+
 
 std::vector<uint8_t> LoadImageFromFile(const char* file_name,
                                      int* out_width, int* out_height,
